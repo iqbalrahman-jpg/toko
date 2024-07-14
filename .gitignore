@@ -1,0 +1,69 @@
+/vendor
+/node_modules
+
+# Laravel 5 & 6 & 7 & 8 & 9
+/public/storage
+/public/hot
+/storage/*.key
+/vendor
+/node_modules
+/.idea
+/.vscode
+/.vagrant
+Homestead.yaml
+Homestead.json
+.env
+.phpunit.result.cache
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage
+
+# Laravel 5 & 6 & 7 & 8 & 9 specific
+.env.testing
+.env.example
+.phpunit.result.cache
+.php_cs.cache
+.php_cs.dist
+
+# If using Laravel Valet
+.valet/Extensions
+
+# If using Laravel Sail
+.docker
+
+# If using Docker
+docker-compose.override.yml
+
+# Caches & logs
+*.log
+*.cache
+*.dat
+*.ndb
+*.pid
+*.seed
+*.pid.lock
+*.sql
+*.sqlite
+*.tar.gz
+*.zip
+
+# Local environment
+.env.local.php
+.env.*.local.php
+.env.php
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Composer
+composer.phar
+
+# Log files
+storage/logs/*.log
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/testing/*
+storage/framework/views/*.php
