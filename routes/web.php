@@ -1,19 +1,23 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CategoryController;
+use Illuminate\Support\Facades\Route;
 
-Route::get("/login", [LoginController::class, "showLoginForm"])->name("login");
-Route::post("/login", [LoginController::class, "login"]);
-Route::post("/logout", [LoginController::class, "logout"])->name("logout");
+// Authentication Routes...
+Route::get("login", [LoginController::class, "showLoginForm"])->name("login");
+Route::post("login", [LoginController::class, "login"]);
+Route::post("logout", [LoginController::class, "logout"])->name("logout");
 
+// Registration Routes...
 Route::get("register", [
     RegisterController::class,
     "showRegistrationForm",
 ])->name("register");
 Route::post("register", [RegisterController::class, "register"]);
 
+// Protected Routes (Requires Authentication)
 Route::middleware(["auth"])->group(function () {
     Route::get("/", function () {
         return view("pages.home");
@@ -35,7 +39,22 @@ Route::middleware(["auth"])->group(function () {
         return view("pages.barang");
     })->name("barang");
 
-    Route::get("/kategori", function () {
-        return view("pages.kategori");
-    })->name("kategori");
+    Route::get("/kategori", [CategoryController::class, "index"])->name(
+        "kategori.index"
+    );
+    Route::post("/kategori", [CategoryController::class, "store"])->name(
+        "kategori.store"
+    );
+    Route::put("/kategori/{category}", [
+        CategoryController::class,
+        "update",
+    ])->name("kategori.update");
+    Route::delete("/kategori/{category}", [
+        CategoryController::class,
+        "destroy",
+    ])->name("kategori.destroy");
+    Route::put("/kategori/{category}/toggle-status", [
+        CategoryController::class,
+        "toggleStatus",
+    ])->name("kategori.toggleStatus");
 });

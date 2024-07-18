@@ -31,7 +31,7 @@
                         <li><a href="{{ route('penjualan') }}">Penjualan</a></li>
                         <li><a href="{{ route('stok') }}">Stok</a></li>
                         <li><a href="{{ route('barang') }}">Barang</a></li>
-                        <li><a href="{{ route('kategori') }}">Kategori</a></li>
+                        <li><a href="{{ route('kategori.index') }}">Kategori</a></li>
                     </ul>
                 </nav>
                 @endguest
