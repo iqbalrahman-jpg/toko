@@ -32,7 +32,6 @@ class CategoryController extends Controller
     {
         $request->validate([
             "nama" => "required|string|max:255",
-            "status" => "required|boolean",
         ]);
 
         $categoryData = $request->only(["nama"]);
