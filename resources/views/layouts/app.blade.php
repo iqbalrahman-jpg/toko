@@ -30,7 +30,7 @@
                         <li><a href="{{ route('keuangan') }}">Keuangan</a></li>
                         <li><a href="{{ route('penjualan') }}">Penjualan</a></li>
                         <li><a href="{{ route('stok') }}">Stok</a></li>
-                        <li><a href="{{ route('barang') }}">Barang</a></li>
+                        <li><a href="{{ route('barang.index') }}">Barang</a></li>
                         <li><a href="{{ route('kategori.index') }}">Kategori</a></li>
                     </ul>
                 </nav>
@@ -42,5 +42,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Include Bootstrap JS -->
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

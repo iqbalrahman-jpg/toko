@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,10 +36,26 @@ Route::middleware(["auth"])->group(function () {
         return view("pages.stok");
     })->name("stok");
 
-    Route::get("/barang", function () {
-        return view("pages.barang");
-    })->name("barang");
+    // barang
+    Route::get("/barang", [BarangController::class, "index"])->name(
+        "barang.index"
+    );
+    Route::post("/barang", [BarangController::class, "store"])->name(
+        "barang.store"
+    );
+    Route::put("/barang/{barang}", [BarangController::class, "update"])->name(
+        "barang.update"
+    );
+    Route::delete("/barang/{barang}", [
+        BarangController::class,
+        "destroy",
+    ])->name("barang.destroy");
+    Route::put("/barang/{barang}/toggle-status", [
+        BarangController::class,
+        "toggleStatus",
+    ])->name("barang.toggleStatus");
 
+    // kategori
     Route::get("/kategori", [CategoryController::class, "index"])->name(
         "kategori.index"
     );
