@@ -29,7 +29,7 @@
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('keuangan') }}">Keuangan</a></li>
                         <li><a href="{{ route('penjualan') }}">Penjualan</a></li>
-                        <li><a href="{{ route('stok') }}">Stok</a></li>
+                        <li><a href="{{ route('stok.index') }}">Stok</a></li>
                         <li><a href="{{ route('barang.index') }}">Barang</a></li>
                         <li><a href="{{ route('kategori.index') }}">Kategori</a></li>
                     </ul>

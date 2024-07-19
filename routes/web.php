@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\StokController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PreviewController;
 use Illuminate\Support\Facades\Route;
 
 // Authentication Routes...
@@ -32,9 +34,19 @@ Route::middleware(["auth"])->group(function () {
         return view("pages.penjualan");
     })->name("penjualan");
 
-    Route::get("/stok", function () {
-        return view("pages.stok");
-    })->name("stok");
+    // stok
+    Route::get("/stok", [StokController::class, "index"])->name("stok.index");
+    Route::post("/stok", [StokController::class, "store"])->name("stok.store");
+    Route::put("/stok/{stok}", [StokController::class, "update"])->name(
+        "stok.update"
+    );
+    Route::delete("/stok/{stok}", [StokController::class, "destroy"])->name(
+        "stok.destroy"
+    );
+    Route::put("/stok/{stok}/toggle-status", [
+        StokController::class,
+        "toggleStatus",
+    ])->name("stok.toggleStatus");
 
     // barang
     Route::get("/barang", [BarangController::class, "index"])->name(
@@ -74,4 +86,9 @@ Route::middleware(["auth"])->group(function () {
         CategoryController::class,
         "toggleStatus",
     ])->name("kategori.toggleStatus");
+
+    Route::get("/preview", [
+        App\Http\Controllers\PreviewController::class,
+        "show",
+    ])->name("preview.show");
 });
